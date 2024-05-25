@@ -17,6 +17,12 @@ const GenerateReport = ({ reportData }) => {
       reactionOnset,
       reaction,
       seriousness,
+      dobDay,
+      dobMonth,
+      dobYear,
+      reactionOnsetDay,
+      reactionOnsetMonth,
+      reactionOnsetYear,
     } = reportData;
 
     const checked = `<svg width="10px" height="10px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -133,12 +139,12 @@ const GenerateReport = ({ reportData }) => {
            </td>
           </tr>
           <tr>
-            <td style="font-size:10px"Date<br/>/date here/</td>
-            <td style="font-size:10px">Month<br/>/month here/</td>
-            <td style="font-size:10px">Year<br/>/year here/</td>
-            <td style="font-size:10px">Date<br/>/date here/</td>
-            <td style="font-size:10px">Month<br/>/month here/</td>
-            <td style="font-size:10px">Year<br/>/year here/</td>
+          <td style="font-size:10px">Date<br/>${dobDay}</td>
+          <td style="font-size:10px">Month<br/>${dobMonth}</td>
+          <td style="font-size:10px">Year<br/>${dobYear}</td>
+          <td style="font-size:10px">Date<br/>${reactionOnsetDay}</td>
+          <td style="font-size:10px">Month<br/>${reactionOnsetMonth}</td>
+          <td style="font-size:10px">Year<br/>${reactionOnsetYear}</td>
           </tr>
           <tr>
             <td style="font-size:10px" class="des_rec" colspan="18" rowspan="3">

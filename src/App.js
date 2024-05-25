@@ -12,11 +12,15 @@ function App() {
   const [reactionOnset, setReactionOnset] = useState("");
   const [reaction, setReaction] = useState("");
   const [seriousness, setSeriousness] = useState("");
+  const [dobDay, setDobDay] = useState('');
+  const [dobMonth, setDobMonth] = useState('');
+  const [dobYear, setDobYear] = useState('');
+  const [reactionOnsetDay, setReactionOnsetDay] = useState('');
+  const [reactionOnsetMonth, setReactionOnsetMonth] = useState('');
+  const [reactionOnsetYear, setReactionOnsetYear] = useState('')
 
-  const calculateAge = (dob, reactionOnset, ageUnit, convertable) => {
+  const calculateAge = (dobDate, onsetDate, ageUnit, convertable) => {
     let age_unit = ageUnit;
-    const dobDate = new Date(dob);
-    const onsetDate = new Date(reactionOnset);
     const diffTime = Math.abs(onsetDate - dobDate);
     console.log(diffTime);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -39,9 +43,25 @@ function App() {
   };
 
   const handleCalculateAge = () => {
+    const dobDate = new Date(dob);
+    const onsetDate = new Date(reactionOnset);
+    if(onsetDate-dobDate>0){
+    setDobYear(dob.split('-')[0])
+    setDobMonth(dob.split('-')[1])
+    setDobDay(dob.split('-')[2])
+    setReactionOnsetDay(reactionOnset.split('-')[2])
+    setReactionOnsetMonth(reactionOnset.split('-')[1])
+    setReactionOnsetYear(reactionOnset.split('-')[0])
     if (dob && reactionOnset) {
-      setAge(calculateAge(dob, reactionOnset, ageUnit, true));
+      setAge(calculateAge(dobDate, onsetDate, ageUnit, true));
     }
+  }
+  else if (reactionOnset && dob){
+    alert('Reaction Onset Date can not be less then DOB')
+    setDob("")
+    console.log('dif--',onsetDate-dobDate);
+    setReactionOnset("")
+  }
   };
 
   const handleInitialsChange = (e) => {
@@ -72,10 +92,17 @@ function App() {
     reactionOnset,
     reaction,
     seriousness,
+    dobDay,
+    dobMonth,
+    dobYear,
+    reactionOnsetDay,
+    reactionOnsetMonth,
+    reactionOnsetYear,
   };
 
   return (
     <div className="App">
+    <div className="form-container">
       <form>
         <div className="form-group">
           <label htmlFor="initials">Patient Initials:</label>
@@ -185,6 +212,7 @@ function App() {
         </div>
         <GenerateReport reportData={reportData} />
       </form>
+      </div>
     </div>
   );
 }

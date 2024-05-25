@@ -49,6 +49,14 @@ button {
   margin-top: 20px;
 }
 
+.form-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 button:hover {
   background-color: #0056b3;
 }
