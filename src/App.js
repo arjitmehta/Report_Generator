@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import GenerateReport from "./GenerateReport";
+import XMLReport from "./XMLReport";
 
 function App() {
   const [initials, setInitials] = useState("");
@@ -211,6 +212,7 @@ function App() {
           </select>
         </div>
         <GenerateReport reportData={reportData} />
+        <XMLReport reportData={reportData}/>
       </form>
       </div>
     </div>
