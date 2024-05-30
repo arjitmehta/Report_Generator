@@ -28,7 +28,7 @@ const XMLReport = ({ reportData }) => {
       "Disability": "E.i.3.2d",
     };
 
-    const xmlContent = `<?xml encoding=UTF-8?>
+    const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
     <Field>
     <Front_end_Fields>Patient_initials</Front_end_Fields>
     <Element_Number>D.1</Element_Number>

@@ -149,7 +149,7 @@ function App() {
             value={ageUnit}
             onChange={(e) => {
               setAgeUnit(e.target.value);
-              setAge(calculateAge(dob, reactionOnset, e.target.value, false));
+              setAge(calculateAge(new Date(dob), new Date(reactionOnset), e.target.value, false));
             }}
           >
             <option value="Months">Months</option>
